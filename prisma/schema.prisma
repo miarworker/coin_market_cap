@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Coin {
+  id                Int         @id @default(autoincrement())
+  name              String      @unique
+  symbol            String
+  circulatingSupply String
+  totalSupply       String
+  cexs              Cex[]
+  dexs              Dex[]
+  CoinPrice         CoinPrice[]
+}
+
+model Cex {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  coins     Coin[]
+  CoinPrice CoinPrice[]
+}
+
+model Dex {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  coins     Coin[]
+  CoinPrice CoinPrice[]
+}
+
+model CoinPrice {
+  coin      Coin     @relation(fields: [coinId], references: [id])
+  coinId    Int
+  cex       Cex?     @relation(fields: [cexId], references: [id])
+  cexId     Int?
+  dex       Dex?     @relation(fields: [dexId], references: [id])
+  dexId     Int?
+  price     String
+  createdAt DateTime @default(now())
+
+  @@unique([coinId, createdAt])
+}
