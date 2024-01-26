@@ -5,7 +5,7 @@ import { AggregatorService } from '../aggregator/aggregator.service';
 export class GatewayService {
   constructor(private readonly aggregatorService: AggregatorService) {}
 
-  getHello() {
+  getCoinsData() {
     return this.aggregatorService.getCoinsData();
   }
 }
