@@ -13,7 +13,9 @@ export class BinanceService {
     });
   }
 
-  async get24hrChangeStatististics() {
-    return this.binanceClient.get24hrChangeStatististics({ symbol: 'XRPUSDT' });
+  async getOrderBook(tokenSymbol1: string, tokenSymbol2: string) {
+    return this.binanceClient.getOrderBook({
+      symbol: `${tokenSymbol1}${tokenSymbol2}`,
+    });
   }
 }

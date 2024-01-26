@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { BinanceService } from '@app/scrapers/binance/binance.service';
+import { AggregatorService } from '../aggregator/aggregator.service';
 
 @Injectable()
 export class GatewayService {
-  constructor(private readonly binanceService: BinanceService) {}
+  constructor(private readonly aggregatorService: AggregatorService) {}
 
   getHello() {
-    return this.binanceService.get24hrChangeStatististics();
+    return this.aggregatorService.getCoinsData();
   }
 }

@@ -18,6 +18,7 @@ async function main() {
       symbol: 'XRP',
       circulatingSupply: '',
       totalSupply: '',
+      coingeckoId: 'ripple',
       cexs: { connect: { id: binance.id } },
     },
   });

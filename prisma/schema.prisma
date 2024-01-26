@@ -16,6 +16,8 @@ model Coin {
   symbol            String
   circulatingSupply String
   totalSupply       String
+  coingeckoId       String?
+  coinMarketCapId   String?
   cexs              Cex[]
   dexs              Dex[]
   CoinPrice         CoinPrice[]

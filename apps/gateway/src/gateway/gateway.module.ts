@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { GatewayController } from './gateway.controller';
 import { GatewayService } from './gateway.service';
-import { BinanceModule } from '@app/scrapers/binance/binance.module';
+import { AggregatorModule } from '../aggregator/aggregator.module';
 
 @Module({
-  imports: [BinanceModule],
+  imports: [AggregatorModule],
   controllers: [GatewayController],
   providers: [GatewayService],
 })

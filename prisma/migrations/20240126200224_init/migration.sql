@@ -5,6 +5,8 @@ CREATE TABLE "Coin" (
     "symbol" TEXT NOT NULL,
     "circulatingSupply" TEXT NOT NULL,
     "totalSupply" TEXT NOT NULL,
+    "coingeckoId" TEXT,
+    "coinMarketCapId" TEXT,
 
     CONSTRAINT "Coin_pkey" PRIMARY KEY ("id")
 );
